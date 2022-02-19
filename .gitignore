@@ -1,2 +1,4 @@
 .replit
 replit.nix
+.gitignore
+node_modules
