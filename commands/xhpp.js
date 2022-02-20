@@ -10,43 +10,48 @@ module.exports = {
 			.setRequired(true)),
 	async run(interaction) {
 		let string = interaction.options.getString('input');
-		string = [...string]
-		// inefficient, tbh
-		let conversions = [[/A/gi, 'xue '],
-		[/B/gi, 'hua '],
-		[/C/gi, 'piao '],
-		[/D/gi, 'bei '],
-		[/E/gi, 'feng '],
-		[/F/gi, 'xiao '],
-		[/G/gi, 'tian '],
-		[/H/gi, 'di '],
-		[/I/gi, 'yi '],
-		[/J/gi, 'pian '],
-		[/K/gi, 'cang '],
-		[/L/gi, 'mang '],
-		[/M/gi, 'jian '],
-		[/N/gi, 'han '],
-		[/O/gi, 'mei '],
-		[/P/gi, 'ao '],
-		[/Q/gi, 'li '],
-		[/R/gi, 'zhong '],
-		[/S/gi, 'zhi '],
-		[/T/gi, 'wei '],
-		[/U/gi, 'ren '],
-		[/V/gi, 'xiang '],
-		[/W/gi, 'ai '],
-		[/X/gi, 'wo '],
-		[/Y/gi, 'suo '],
-		[/Z/gi, 'wu '],
-		[/\./gi, 'yuan '],
-		[/\!/gi, 'ci '],
-		[/\!/gi, 'qing '],
-		[/\,/gi, 'chang ']];
+		string = [...string];		// inefficient, tbh
+		let conversions = [[/a/gmi, 'xuě'],
+[/b/gmi, 'huā'],
+[/c/gmi, 'piāo'],
+[/d/gmi, 'běi'],
+[/e/gmi, 'fēng'],
+[/f/gmi, 'xiāo'],
+[/g/gmi, 'tiān'],
+[/h/gmi, 'dì'],
+[/i/gmi, 'yí'],
+[/j/gmi, 'piàn'],
+[/k/gmi, 'cāng'],
+[/l/gmi, 'máng'],
+[/m/gmi, 'yì'],
+[/n/gmi, 'jiǎn'],
+[/o/gmi, 'hán'],
+[/p/gmi, 'méi'],
+[/q/gmi, 'ào'],
+[/r/gmi, 'lì'],
+[/s/gmi, 'zhōng'],
+[/t/gmi, 'zhǐ'],
+[/u/gmi, 'wéi'],
+[/v/gmi, 'yī'],
+[/w/gmi, 'rén'],
+[/x/gmi, 'xiāng'],
+[/y/gmi, 'ài'],
+[/z/gmi, 'wǒ'],
+[/0/gmi, 'suǒ'],
+[/1/gmi, 'wú'],
+[/2/gmi, 'yuàn'],
+[/3/gmi, 'huǐ'],
+[/4/gmi, 'cǐ'],
+[/5/gmi, 'qíng'],
+[/6/gmi, 'cháng'],
+[/7/gmi, 'liú'],
+[/8/gmi, 'xīn'],
+[/9/gmi, 'jiān']];
 		string.forEach((e, i) => {
 			for (let c of conversions) {
 				if (e.match(c[0])) string[i] = c[1];
 			}
 		})
-		await interaction.reply(string.join(''));
+		await interaction.reply(string.join(' '));
 	},
 };
