@@ -13,7 +13,19 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.user.setActivity(`${commandFiles.length} commands so far`);
 	client.user.setStatus('idle');
+	const express = require('express');
+	const app = express();
+	const port = 443;
+
+	app.get('/', (req, res) => {
+  	res.send('there is actually nothing here');
+	});
+
+	app.listen(port, () => {
+		console.log(`Server ready!`);
+	});
 });
+
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
@@ -24,7 +36,7 @@ client.on('interactionCreate', async interaction => {
 	if (!command) return;
 
 	try {
-		await command.run(interaction);
+		await command.run(interaction, client);
 	} catch (error) {
 		console.error(error);
 		await interaction.reply({ content: 'There was an error. Try again later.', ephemeral: true });

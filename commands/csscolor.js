@@ -8,7 +8,7 @@ module.exports = {
 		option.setName('color')
 			.setDescription('color: valid css color')
 			.setRequired(true)),
-	async run(interaction) {
+	async run(interaction, client) {
 		const { MessageAttachment } = require('discord.js');
 		let c = interaction.options.getString('color');
 		const canvas = Canvas.createCanvas(100, 100);
