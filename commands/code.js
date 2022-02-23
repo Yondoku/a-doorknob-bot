@@ -31,7 +31,7 @@ module.exports = {
 			if (code.includes(guess[2])) inCode++;
 			if (code.includes(guess[3])) inCode++;
 
-			interaction.channel.send(`${correct} correct, ${inCode - correct} in wrong spot. ${--attemptsLeft} attempts left.`);
+			interaction.channel.send(`${correct} correct, ${inCode - correct} in wrong spot. ${--attemptsLeft} attempts left${attemptsLeft ? '' : `. The code was ${code.join('')}`}`);
 		});
 	},
 };
