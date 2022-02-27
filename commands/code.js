@@ -10,7 +10,6 @@ module.exports = {
 	  const collector = interaction.channel.createMessageCollector({filter, time: 120_000, max: 15});
 		
 		let code = [0,0,0,0].map(_ => Math.floor(Math.random() * 10)), attemptsLeft = 15;
-		console.log(code);
 		collector.on('collect', async r => {
 			if (!+r || r.content.length != 4) return interaction.channel.send(`Invalid code. ${--attemptsLeft} attempts left.`);
 			

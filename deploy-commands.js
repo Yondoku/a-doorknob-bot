@@ -12,6 +12,6 @@ for (const file of commandFiles) {
 	commands.push(command.data.toJSON());
 }const rest = new REST({ version: '9' }).setToken(process.env.token);
 
-rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+rest.put(Routes.applicationCommands(clientId), { body: commands })
 	.then(() => console.log('registered dumbo'))
-	.catch(console.error);
+	.catch(x=>console.log('3'));

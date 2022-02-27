@@ -8,7 +8,7 @@ module.exports = {
 		option.setName('input')
 			.setDescription('input: code to eval')
 			.setRequired(true)),
-	async run(interaction) {
+	async run(interaction, client) {
 		if (interaction.user.id !== '671264149745041408') return await interaction.reply('You can\'t run this command. You need to be a bot developer/the owner.')
 		let string = interaction.options.getString('input');
 		try {
