@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('Manage webhooks. Surprising, is it not?')
 	.addSubcommand(subcommand =>
 		subcommand
-			.setName('create')	.setDescription('subcommand_create: create a new webhook')
+			.setName('create').setDescription('subcommand_create: create a new webhook')
 			.addStringOption(option => option.setName('name').setDescription('name: the name of the webhook').setRequired(true))
 			.addStringOption(option =>
 option.setName('imageurl').setDescription('imageurl: a link to an image for the webhook pfp')))
